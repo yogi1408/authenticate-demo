@@ -10,7 +10,7 @@ export class ContactController {
     return this.contactService.createContact(res, req);
   }
 
-  @Post('spam/:phone')
+  @Get('spam/:phone')
   spamContact(
     @Res() res: Response,
     @Req() req: Request,
