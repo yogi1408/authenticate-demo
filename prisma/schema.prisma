@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id       Int       @id @default(autoincrement())
+  name     String
+  phone    String    @unique
+  email    String?
+  password String
+  contacts contact[]
+}
+
+model contact {
+  id         Int     @id @default(autoincrement())
+  name       String
+  phone      String
+  email      String?
+  is_spam    Boolean @default(false)
+  spam_count Int     @default(0)
+  user_link  Int?
+  user       user?   @relation(fields: [user_link], references: [id], onDelete: Cascade, onUpdate: Cascade, map: "FK__user")
+}
