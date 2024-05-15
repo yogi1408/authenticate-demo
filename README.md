@@ -12,7 +12,9 @@ This application spam contacts like truecaller. It utilizes data and stores info
    npm run start:dev
    The application will be accessible at http://localhost:3000
 
-2. **Set Environment Variables**: Create a .env file in the root directory of the project and define the following variables:
 
- ```bash
+2. **Set Environment Variables**: Create a .env file in the root directory of the project and define the following variables:
    DATABASE_URL=postgresql://<username>:<password>@127.0.0.1:<port>/<database_name>
+
+3. **After running login API**
+Got token in response, use this token as Bearer Token for other APIs.
